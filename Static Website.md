@@ -7,17 +7,20 @@ Implementation of the Static Website is easy. Here are the steps taken to perfor
   4. Upload the website template and choose index.html for the index. The website template was obtained from a free-css.com
 
      
-Results:
+**Results:**
 
 ![image](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/1b60717a-85ef-42c0-bc77-91b971ad8bc3)
 
 
-Discussion:
-
-
+**Discussion:**
 When I clicked on the client after the creation, no error was present. Afterwhich, I found out that the images folder of the website files has not been uploaded. So I reuploaded it and completed the task
+
 ![image](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/4120c039-7146-49e2-96ab-6d5f8d476b81)
 
 
 The JSON-formatted bucket policy allows public access to all the objects contained inside **carvillaexamplejpc** bucket 
+
 ![image](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/487aa54c-9640-41b9-a1be-d65135a0746e)
+
+**Recommendations:**
+Use Route 53 for domain name registration
