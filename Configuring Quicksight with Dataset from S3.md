@@ -2,7 +2,7 @@
 
 AWS Quicksight provides meaning visualizations within a given dataset. 
 
-Objectives:
+**Objectives**:
   1. Load data into Quicksight with Dataset from S3
   2. Create visualizations on Quicksight
        
