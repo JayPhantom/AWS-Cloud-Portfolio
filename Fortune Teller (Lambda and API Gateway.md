@@ -1,6 +1,6 @@
 This is a Fortune Teller application that answers Yes, No, or Maybe to your most personal inquries
 
-Objective:
+**Objective:**
   1. Create a Fortune Teller application whereby a question  can be inputted and it will answer either of the three: YES, NO, and MAYBE.
   2. Create Lambda and API Gateway, and connect them together.
   3. Invoke the lambda function using API Gateway.
@@ -20,15 +20,14 @@ Below are the steps I took to be able to create the Fortune Teller application:
      
      Configuring the Parameter Mapping will allow the questions to be inputted since it accepts a string query
     
-Discussion and Results:
+**Discussion and Results:**
 Question: Will it be sunny today?
-![image](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/2d9efd26-3c5e-4e78-8a23-2c953660bb07)
+![image](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/1a1fe424-071e-4d15-9aa2-7f8f33d76c0f)
 
 Question: Will I be rich?
-![image](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/e29f2a6a-ada7-4ea6-8c84-c75a610311fc)
+![image](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/35ffb552-2cf8-4f10-bec3-99bcfdfb6a0a)
 
 Question: Should I order my food now?
-![image](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/5534c6f9-dad6-4fbd-b1ed-5a257fa5b907)
+![image](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/c9e54729-b643-497d-ba46-595ebf3c2d21)
 
-
-
+The creation of the Fortune Teller went well. The problem I initially had was where the user input (question) will be configured. I tried including a function to take the user input on the Python code but it did not work. After reasearching, I have determined that the only way was thru the Parameter Mapping on API Gateway where the question from user input will be appended to the Invoke URL.
