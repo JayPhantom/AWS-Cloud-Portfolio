@@ -1,6 +1,12 @@
 **Description**: Use of Quicksight
 
-AWS Quicksight provides meaning visualizations within a given dataset. Here are the steps:
+AWS Quicksight provides meaning visualizations within a given dataset. 
+
+Objectives:
+  1. Load data into Quicksight with Dataset from S3
+  2. Create visualizations on Quicksight
+       
+Here are the steps:
   1. Create a S3 bucket, and upload the dataset. On my end, I uploaded a CSV-formatted dataset titled: Amazon Bestseller Dataset. This dataset provides the most sold items on Amazon aong with the information on the items and the consumers
   2. After uploading the dataset, obtain the object URI, and copy it to the clipboard
   3. On the manifest JSON file, specify the  object URI of the dataset.
