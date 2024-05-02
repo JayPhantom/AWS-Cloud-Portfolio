@@ -1,5 +1,8 @@
 This is to create a Static Website hosted by AWS S3
 
+**Objectives:**
+  1. Create a static website hosted on S3
+
 Implementation of the Static Website is easy. Here are the steps taken to perform this task:
   1. Create a bucket on S3, choose a globally unique name, and uncheck the Block All Public Access
   2. Once the bucket has been created, change permissions of the bucket by allowing public access using the JSON-formatted policy
