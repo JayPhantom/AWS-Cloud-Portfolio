@@ -1,9 +1,11 @@
 **Description:**
+
 This is a notification service whereby a webpage will send a specified message to an email provided by user input. This is project is a demo from Adrian Cantrill's SAA-C03 course.
 
 ![9 webpage](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/3e4d66ca-fb13-4a3e-8aa7-4bf4e3be6a55)
 
 **Objective:**
+
 Using State Machine as the crucial component of this project, the following objectives shall be completed:
   1. Host a static website on S3 that will allow users to input the wait time, email address of the receiver, and a personalized message
   2. Connect the S3 bucket to the API Gateway which will consequently invoke an Lambda API function.
@@ -13,13 +15,16 @@ Using State Machine as the crucial component of this project, the following obje
   6. An AWS SES shall be created with verified a email receiver, and email sender that will deliver the message.
 
 **Procedure:**
-**Task 1:**
+
+**Task 1**
+
 1. Using AWS SES, create two identities. The first identity should indicate where the email is coming from and the second identity shall indicate where the email will be sent.
 2. Verify both email notifications by accessing the specified emails and clicking on the link. This will redirect to an AWS website with a Congratulations message as indicated in the picture below
 ![congrats email notif](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/6d6f590e-02e9-4b46-a0f0-3b474aac8f3f)
 
 
 **Task 2**
+
 Configure two Lambda functions that can perform two tasks: send emails using SES and an execution role to provide permissions it needs
 1. Create an IAM Role for the Lambda function to assume.
 2. Create the Lambda function with the newly-created IAM Role as the default execution role
@@ -27,6 +32,7 @@ Configure two Lambda functions that can perform two tasks: send emails using SES
 ![3 lambda_function](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/9ae8087c-f936-4c56-9496-b68299cbdba6)
 
 **Task 3**
+
 Configure the State Machine. This manages the flow of the entire application. It will consist of a timer that will pause before a new item is processed (wait item).
 1. Create an IAM Role for the State Machine to allow interaction within the AWS services.
 2. Create the State Machine thru Step Functions. The provided JSON-file creates the state machine that initially begins with a Timer that waits for a specified time before the Lambda function is invoked and executed, and then completes the entire state machine execution. Below is a picture that indicated the flow of the state machine
@@ -35,6 +41,7 @@ Configure the State Machine. This manages the flow of the entire application. It
 4. Continue the configuration of the state machine by selecting the newly-created IAM role in step 1. Additionally, select the ALL option in Logging tab which allows all events in the state machine to be logged in CloudWatch Logs
 
 **Task 4**
+
 Create an API Gateway where the client application commences its processed to the backend
 1. Create a Lambda API function. This function provides a response of failure or success after being invoked by the API Gateway. If the process is failed, it provides a 400 response error and when its process is a success, it executes the State Machine
 2. Create a Rest API with API Gateway. Create a Resource and enable CORS (Cross Origin Resource Sharing)
@@ -42,6 +49,7 @@ Create an API Gateway where the client application commences its processed to th
 4. Deploy the created API Gateway with stage name as prod
 
 **Task 5**
+
 Upload the webpage to host the static website on S3
 1. Create an S3 bucket with a globally unique bucket name. Uncheck the _Block all public access._
 2. Generate the bucket policy allowing public access to the bucket.
@@ -50,6 +58,7 @@ Upload the webpage to host the static website on S3
 5. Once upload is complete, open the link provided on the static website hosting and test the Pet-Cuddle-O-Tron.
 
 **Results and Discussion**
+
 The creation of the messaging system went fairly well. During the test, as I entered the user input on the webpage, it provided an error that the request has failed. I began the investigation with the assumption that the process flow has not entered the State Machine since the Lambda API function is the only component configured to provide an error during a request. Moving forward, I checked the interconnection and configuration details of the services between S3 to API Gateway, and API Gateway to Lambda API function. As it turns out, an incorrect API was set to trigger the Lambda API function. The error was rectified by specifying the API created on Task 4.2 to the Lambda API function.
 
 Following the correction, the webpage provided success response as indicated in the picture below:
