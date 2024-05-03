@@ -1,2 +1,2 @@
 # AWS-Cloud-Portfolio
-A display of mini cloud projects
+A collection of AWS cloud projects
