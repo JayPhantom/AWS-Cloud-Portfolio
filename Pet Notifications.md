@@ -1,5 +1,6 @@
 **Description:**
 This is a notification service whereby a webpage will send a specified message to an email provided by user input. This is project is a demo from Adrian Cantrill's SAA-C03 course.
+
 ![9 webpage](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/3e4d66ca-fb13-4a3e-8aa7-4bf4e3be6a55)
 
 **Objective:**
