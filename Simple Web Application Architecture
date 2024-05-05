@@ -1,3 +1,9 @@
+Objective:
+  1. Create a functioning web application with Subnets for: Web, Application, Database and a Reserved subnet.
+  2. Connect an instance on the public subnet to the Internet
+  3. Connect an instance on the private subnet to the Internet.
+
+
 Create the VPC and select 10.16.0.0/16. This CIDR range will provide 65,536 IP addresses. On the VPC settings, ticket the Enable DNS hostnames - allowing public resources to automatically be assigned with public DNS names
 
 Create nine subnets with the Enable auto-assign IPv6 address ticked. To make a subnet public, attach an internet gateway
