@@ -3,23 +3,32 @@ Objective:
   2. Connect an instance on the public subnet to the Internet
   3. Connect an instance on the private subnet to the Internet.
 
-
+Below are the followings steps:
 Create the VPC and select 10.16.0.0/16. This CIDR range will provide 65,536 IP addresses. On the VPC settings, ticket the Enable DNS hostnames - allowing public resources to automatically be assigned with public DNS names
+![Screenshot 2024-05-05 205908](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/bcabdd0d-6e40-4280-a52a-8426478b3cf9)
 
 Create nine subnets with the Enable auto-assign IPv6 address ticked. To make a subnet public, attach an internet gateway
+![Screenshot 2024-05-05 192029](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/e9a80c8e-f2df-41a7-8759-2b5f1bfb2d42)
 
 Create an internet gateway and associate it with the VPC
+![Screenshot 2024-05-05 193946](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/1cdae87f-1dac-416b-9b2b-ba3c87549aff)
+![Screenshot 2024-05-05 194045](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/726f039d-7057-4c0c-af4a-9cc1bb277465)
 
 Create the Route Table that points the public subnet to the internet gateway - this will allow the subnet to connect to the internet. Associate a web subnets with the RT. If the subnet is not associate with RT, it will be associated with the default.
+![Screenshot 2024-05-05 194543](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/be3ff60e-de97-49e7-8059-6fd92da07bba)
 
 Add the IPv4 routes by adding the route 0.0.0.0/0 with the newly-created internet gateway. Also, the IPv6 routes is added with specifying the destination ::/0 with the same internet gateway
+![Screenshot 2024-05-05 195037](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/5d15dec7-4a29-4b9f-9743-a0284b4000b7)
 
 On the subnet settings, tick the Enable auto-assign public IPv4 address to allocate IPv4 address to resources launch in the web subnets
 
 To test the configuration, create an EC2 instance. The said instance shall be launched inside the VPC, and in the web subnet. Additionally, create a new security group upon launch configuration
 
 Create a NAT Gateway for each public web subnet. Allocate an Elastic IP Address each
+![Screenshot 2024-05-05 203102](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/c21b9920-3c57-4340-b6be-564fd74420f7)
 
-Create a Route Table for each Availabity Zone. Configure each routes of the route tables with 0.0.0.0/0 for the destination and NAT Gateway for the Target. The NAT Gateway selected should be selected respective of its AZ.
+Configure each routes of the route tables with 0.0.0.0/0 for the destination and NAT Gateway for the Target. The NAT Gateway selected should be selected respective of its AZ.
+![Screenshot 2024-05-05 203303](https://github.com/JayPhantom/AWS-Cloud-Portfolio/assets/109772529/2642c440-7e0f-487a-9710-c4f7f23fc530)
 
 On Subnet Associations of the Route Tables, associate the route table with all the subnets that is created for it respective AZ.
+
